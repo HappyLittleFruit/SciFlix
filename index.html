@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sciflix</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/029d930f1f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="libs/owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="libs/owl/owl.theme.default.css">
+    <link rel="stylesheet" href="css/glitch.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <section class="nav-links">
+                <img src="img/logo.png" class="logo" alt="">
+                <nav>
+                    <a href="#" class="selected">Inicio</a>
+                    <a href="#">Soft Sci-fi</a>
+                    <a href="#">Hard Sci-fi</a>
+                    <a href="#">Favoritos</a>
+                </nav>
+            </section>
+
+            <div class="nav-buttons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-gift"></i>
+                <i class="fas fa-caret-down"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="filme-principal">
+            <div class="container">
+                <img class="titulo" src="img/the_expanse_logo.png" alt="">
+                <h3 class="about"> <span style="font-size: 1.2em;">★</span> A melhor serie de  &nbsp;<span style="font-size: 1.2rem;" class="glitch" data-text="Sci-fi">Sci-fi</span></h3>
+                <p class="desc">A thriller set two hundred years in the future following the case of a missing young woman who brings a hardened detective and a rogue ship's captain together.</p>
+                <div class="botoes">
+                    <button role="button" class="botao">
+                        <i class="fas fa-play"></i>
+                        Assistir
+                    </button>
+                    <button role="button" class="botao">
+                        <i class="fas fa-info-circle"></i>
+                        Mais informações
+                    </button>
+                </div>    
+            </div>
+        </div>
+    </main>
+    
+    <div class="seamless-block"></div>
+    <h2 class="titulo-carrosel">Catálogo <i class="fas fa-angle-right" style="vertical-align: middle; font-size: 16px;"></i></h2>
+    <div class="carrosel-filmes">
+        <div class="owl-carousel owl-theme">
+            <div class="item" video-id="5Jc76QrX5Vg">
+                <img src="img/img1.jpg" class="box-filme" alt="">
+            </div>
+            <div class="item" video-id="aOC8E8z_ifw">
+                <img src="img/img6.jpg" class="box-filme" alt="">
+            </div>
+            <div class="item" video-id="7E9CD3Hucws">
+                <img src="img/img3.jpg" class="box-filme" alt="">
+            </div>
+            <div class="item" video-id="TnYsf2Yv8i8">
+                <img src="img/img4.jpg" class="box-filme" alt="">
+            </div>
+            <div class="item" video-id="31I8Y_ET9xI">
+                <img src="img/img5.jpg" class="box-filme" alt="">
+            </div>
+            <div class="item" video-id="jvXJtMxaPAQ">
+                <img src="img/img2.jpg" class="box-filme" alt="">
+            </div>
+            <div class="item" video-id="t5y4nQ5Y1V8">
+                <img src="img/img7.jpg" class="box-filme" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/owl/owl.carousel.min.js"></script>
+    <script src="https://kit.fontawesome.com/029d930f1f.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        bloco{
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgba(0,    0,   0,   .4);
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999999999;
+        }
+        modal{
+            width: 100%;
+            max-width: 900px;
+            height: calc(100vh - 50px);
+            background-color: white;
+            display: block;
+            margin: auto;
+            margin-top: 25px;
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+    <bloco style="display: none;">
+        <modal>
+            <iframe width="100%"; height="100%" src="" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+             encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </modal>
+    </bloco>
+    <script>
+        $(document).ready(function(){
+            $(".item").click(function(){
+                $("bloco").show("fast")
+                let videoid = $(this).attr("video-id")
+                let url = "https://www.youtube.com/embed/" + videoid 
+                $("iframe").attr("src", url)
+            })
+            $("bloco").click(function(){
+                $("bloco").hide()
+                $("iframe").attr("src", "")
+            })
+        })
+    </script>
+</body>
+</html>
